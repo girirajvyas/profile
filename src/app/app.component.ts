@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AppSettings } from './shared/app.settings';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'profile';
+  
+  public ngOnInit(){
+    console.log(AppSettings.APPLICATION_TITLE)
+    this.title = AppSettings.APPLICATION_TITLE; 
+  }
+
 }

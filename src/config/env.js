@@ -1,3 +1,3 @@
 var envs = {
-    "APPLICATION_TITLE": "profile-"
+    "APPLICATION_TITLE": "Giriraj's Profile"
 }

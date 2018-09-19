@@ -10,7 +10,6 @@ export class AppComponent {
   title = 'profile';
   
   public ngOnInit(){
-    console.log(AppSettings.APPLICATION_TITLE)
     this.title = AppSettings.APPLICATION_TITLE; 
   }
 

@@ -1,3 +1,21 @@
-<p>
-  timeline works!
-</p>
+<div class="timeline">
+    <div class="leftdiv">
+      <!--<h5>Experience Summary</h5> -->
+    </div>
+  <div class="container right" *ngFor="let organization of organizations">
+    <div class="content">
+      <div class="logodiv">
+        <img src="{{organization.organizationLogo}}" class="logo">
+      </div>
+      <div class="organization-details">
+        <b>
+          {{organization.organizationName}}
+          <br/> {{organization.designation}}
+          <br/> {{organization.totalDuration}}
+          <br/> {{organization.location}}
+          <br/>
+        </b>
+      </div>
+    </div>
+  </div>
+</div>

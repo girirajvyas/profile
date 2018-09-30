@@ -23,6 +23,103 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/app/_mock/organizations-mock.ts":
+/*!*********************************************!*\
+  !*** ./src/app/_mock/organizations-mock.ts ***!
+  \*********************************************/
+/*! exports provided: ORGANIZATIONS */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ORGANIZATIONS", function() { return ORGANIZATIONS; });
+var ORGANIZATIONS = [
+    {
+        "organizationName": "Cognizant Technology Services",
+        "organizationLogo": "assets/images/Cognizant-logo.png",
+        "designation": "Product Engineer",
+        "startYear": 2016,
+        "totalDuration": "November 2016 - Present",
+        "location": "Pune, India"
+    },
+    {
+        "organizationName": "Accenture Services Private Limited",
+        "organizationLogo": "assets/images/Accenture-logo.png",
+        "designation": "Software Engineer",
+        "startYear": 2015,
+        "totalDuration": "November 2015 - October 2016",
+        "location": "Pune, India"
+    },
+    {
+        "organizationName": "Capgemini Technology Solutions",
+        "organizationLogo": "assets/images/Capgemini-logo.png",
+        "designation": "Associate Consultant",
+        "startYear": 2012,
+        "totalDuration": "December 2012 - November 2015",
+        "location": "Pune, India"
+    }
+];
+
+
+/***/ }),
+
+/***/ "./src/app/_services/profile.service.ts":
+/*!**********************************************!*\
+  !*** ./src/app/_services/profile.service.ts ***!
+  \**********************************************/
+/*! exports provided: ProfileService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfileService", function() { return ProfileService; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+/* harmony import */ var _shared_app_settings__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../shared/app.settings */ "./src/app/shared/app.settings.ts");
+/* harmony import */ var _mock_organizations_mock__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../_mock/organizations-mock */ "./src/app/_mock/organizations-mock.ts");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ProfileService = /** @class */ (function () {
+    function ProfileService(httpClient) {
+        this.httpClient = httpClient;
+        this.organizationUrl = _shared_app_settings__WEBPACK_IMPORTED_MODULE_3__["AppSettings"].ORGANIZATIONS_URL;
+    }
+    ProfileService.prototype.getOrganizations = function () {
+        //return this.getOrganizationsLocal();
+        return this.getOrganizationsFromFirebase();
+    };
+    ProfileService.prototype.getOrganizationsFromFirebase = function () {
+        return this.httpClient.get(this.organizationUrl);
+    };
+    ProfileService.prototype.getOrganizationsLocal = function () {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_2__["of"])(_mock_organizations_mock__WEBPACK_IMPORTED_MODULE_4__["ORGANIZATIONS"]);
+    };
+    ProfileService = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
+            providedIn: 'root'
+        }),
+        __metadata("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"]])
+    ], ProfileService);
+    return ProfileService;
+}());
+
+
+
+/***/ }),
+
 /***/ "./src/app/app-routing.module.ts":
 /*!***************************************!*\
   !*** ./src/app/app-routing.module.ts ***!
@@ -67,7 +164,7 @@ var AppRoutingModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div style=\"text-align:center\">\r\n  <h1>\r\n    Welcome to {{ title }}!\r\n  </h1>\r\n</div>\r\n<app-timeline></app-timeline>\r\n<app-skills></app-skills>\r\n<router-outlet></router-outlet>\r\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\r\n<div style=\"text-align:center\">\r\n  <h1>\r\n    Welcome to {{ title }}!\r\n  </h1>\r\n</div>\r\n<app-timeline2></app-timeline2>\r\n<app-skills></app-skills>\r\n<router-outlet></router-outlet>\r\n"
 
 /***/ }),
 
@@ -135,10 +232,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppModule", function() { return AppModule; });
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
-/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _timeline_timeline_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./timeline/timeline.component */ "./src/app/timeline/timeline.component.ts");
-/* harmony import */ var _skills_skills_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./skills/skills.component */ "./src/app/skills/skills.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _timeline_timeline_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./timeline/timeline.component */ "./src/app/timeline/timeline.component.ts");
+/* harmony import */ var _skills_skills_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./skills/skills.component */ "./src/app/skills/skills.component.ts");
+/* harmony import */ var _timeline2_timeline2_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./timeline2/timeline2.component */ "./src/app/timeline2/timeline2.component.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -151,22 +250,26 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 
 
 
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
             declarations: [
-                _app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"],
-                _timeline_timeline_component__WEBPACK_IMPORTED_MODULE_4__["TimelineComponent"],
-                _skills_skills_component__WEBPACK_IMPORTED_MODULE_5__["SkillsComponent"]
+                _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
+                _timeline_timeline_component__WEBPACK_IMPORTED_MODULE_5__["TimelineComponent"],
+                _skills_skills_component__WEBPACK_IMPORTED_MODULE_6__["SkillsComponent"],
+                _timeline2_timeline2_component__WEBPACK_IMPORTED_MODULE_7__["Timeline2Component"]
             ],
             imports: [
                 _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"],
-                _app_routing_module__WEBPACK_IMPORTED_MODULE_2__["AppRoutingModule"]
+                _app_routing_module__WEBPACK_IMPORTED_MODULE_3__["AppRoutingModule"],
+                _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClientModule"]
             ],
             providers: [],
-            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_3__["AppComponent"]]
+            bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
         })
     ], AppModule);
     return AppModule;
@@ -190,6 +293,8 @@ var AppSettings = /** @class */ (function () {
     function AppSettings() {
     }
     AppSettings.APPLICATION_TITLE = window['envs']['APPLICATION_TITLE'];
+    AppSettings.ORGANIZATIONS_URL = window['envs']['ORGANIZATIONS_URL'];
+    AppSettings.SKILLS_URL = window['envs']['SKILLS_URL'];
     return AppSettings;
 }());
 
@@ -278,7 +383,7 @@ module.exports = "<div class=\"timeline\">\n    <div class=\"leftdiv\">\n      <
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".organization-details {\n  padding-left: 100px; }\n\n/* Logo related */\n\n.logodiv {\n  width: 70px; }\n\n.logo {\n  height: 70px;\n  width: 70px;\n  padding: 10px;\n  float: left; }\n\n/* The actual timeline (the vertical ruler) */\n\n.timeline {\n  position: relative;\n  max-width: 1200px;\n  margin: 0 auto; }\n\n/* The actual timeline (the vertical ruler) */\n\n.timeline::after {\n  content: '';\n  position: absolute;\n  width: 2px;\n  background-color: darkgrey;\n  top: 0;\n  bottom: 0;\n  left: 50%;\n  margin-left: -3px; }\n\n/* Container around content */\n\n.container {\n  padding: 10px 40px;\n  position: relative;\n  background-color: inherit;\n  width: 50%; }\n\n/* The circles on the timeline */\n\n.container::after {\n  content: '';\n  position: absolute;\n  width: 25px;\n  height: 25px;\n  right: -17px;\n  background-color: lightgray;\n  border: 4px solid darkgrey;\n  top: 40px;\n  border-radius: 50%;\n  z-index: 1; }\n\n/* Place the container to the left */\n\n.left {\n  left: 0; }\n\n/* Place the container to the right */\n\n.right {\n  left: 50%; }\n\n.leftdiv {\n  float: left; }\n\n/* Add arrows to the left container (pointing right) */\n\n.left::before {\n  content: \" \";\n  height: 0;\n  position: absolute;\n  top: 22px;\n  width: 0;\n  z-index: 1;\n  right: 30px;\n  border: medium solid white;\n  border-width: 10px 0 10px 10px;\n  border-color: transparent transparent transparent white; }\n\n/* Add arrows to the right container (pointing left) */\n\n.right::before {\n  content: \" \";\n  height: 0;\n  position: absolute;\n  top: 22px;\n  width: 0;\n  z-index: 1;\n  left: 30px;\n  border: medium solid white;\n  border-width: 10px 10px 10px 0;\n  border-color: transparent white transparent transparent; }\n\n/* Fix the circle for containers on the right side */\n\n.right::after {\n  left: -16px; }\n\n/* The actual content */\n\n.content {\n  padding: 20px 30px;\n  background-color: white;\n  position: relative;\n  border-radius: 6px; }\n\n/* Media queries - Responsive timeline on screens less than 600px wide */\n\n@media screen and (max-width: 600px) {\n  /* Place the timelime to the left */\n  .timeline::after {\n    left: 31px; }\n  /* Full-width containers */\n  .container {\n    width: 100%;\n    padding-left: 70px;\n    padding-right: 25px; }\n  /* Make sure that all arrows are pointing leftwards */\n  .container::before {\n    left: 60px;\n    border: medium solid white;\n    border-width: 10px 10px 10px 0;\n    border-color: transparent white transparent transparent; }\n  /* Make sure all circles are at the same spot */\n  .left::after, .right::after {\n    left: 15px; }\n  /* Make all right containers behave like the left ones */\n  .right {\n    left: 0%; } }\n"
+module.exports = ".organization-details {\n  padding-left: 100px; }\n\n/* Logo related */\n\n.logodiv {\n  width: 70px; }\n\n.logo {\n  height: 70px;\n  width: 70px;\n  padding: 10px;\n  float: left;\n  border-radius: 25%; }\n\n/* The actual timeline (the vertical ruler) */\n\n.timeline {\n  position: relative;\n  max-width: 1200px;\n  margin: 0 auto; }\n\n/* The actual timeline (the vertical ruler) */\n\n.timeline::after {\n  content: '';\n  position: absolute;\n  width: 2px;\n  background-color: darkgrey;\n  top: 0;\n  bottom: 0;\n  left: 50%;\n  margin-left: -3px; }\n\n/* Container around content */\n\n.container {\n  padding: 10px 40px;\n  position: relative;\n  background-color: inherit;\n  width: 50%; }\n\n/* The circles on the timeline */\n\n.container::after {\n  content: '';\n  position: absolute;\n  width: 25px;\n  height: 25px;\n  right: -17px;\n  background-color: lightgray;\n  border: 4px solid darkgrey;\n  top: 40px;\n  border-radius: 50%;\n  z-index: 1; }\n\n/* Place the container to the left */\n\n.left {\n  left: 0; }\n\n/* Place the container to the right */\n\n.right {\n  left: 50%; }\n\n.leftdiv {\n  float: left; }\n\n/* Add arrows to the left container (pointing right) */\n\n.left::before {\n  content: \" \";\n  height: 0;\n  position: absolute;\n  top: 22px;\n  width: 0;\n  z-index: 1;\n  right: 30px;\n  border: medium solid white;\n  border-width: 10px 0 10px 10px;\n  border-color: transparent transparent transparent white; }\n\n/* Add arrows to the right container (pointing left) */\n\n.right::before {\n  content: \" \";\n  height: 0;\n  position: absolute;\n  top: 22px;\n  width: 0;\n  z-index: 1;\n  left: 30px;\n  border: medium solid white;\n  border-width: 10px 10px 10px 0;\n  border-color: transparent white transparent transparent; }\n\n/* Fix the circle for containers on the right side */\n\n.right::after {\n  left: -16px; }\n\n/* The actual content */\n\n.content {\n  padding: 20px 30px;\n  background-color: white;\n  position: relative;\n  border-radius: 6px; }\n\n/* Media queries - Responsive timeline on screens less than 600px wide */\n\n@media screen and (max-width: 600px) {\n  /* Place the timelime to the left */\n  .timeline::after {\n    left: 31px; }\n  /* Full-width containers */\n  .container {\n    width: 100%;\n    padding-left: 70px;\n    padding-right: 25px; }\n  /* Make sure that all arrows are pointing leftwards */\n  .container::before {\n    left: 60px;\n    border: medium solid white;\n    border-width: 10px 10px 10px 0;\n    border-color: transparent white transparent transparent; }\n  /* Make sure all circles are at the same spot */\n  .left::after, .right::after {\n    left: 15px; }\n  /* Make all right containers behave like the left ones */\n  .right {\n    left: 0%; } }\n"
 
 /***/ }),
 
@@ -293,6 +398,7 @@ module.exports = ".organization-details {\n  padding-left: 100px; }\n\n/* Logo r
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TimelineComponent", function() { return TimelineComponent; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _services_profile_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../_services/profile.service */ "./src/app/_services/profile.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -303,36 +409,14 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var TimelineComponent = /** @class */ (function () {
-    function TimelineComponent() {
-        this.organizations = [
-            {
-                "organizationName": "Cognizant Technology Services",
-                "organizationLogo": "assets/images/Cognizant-logo.png",
-                "designation": "Product Engineer",
-                "startYear": 2016,
-                "totalDuration": "November 2016 - Present",
-                "location": "Pune, India"
-            },
-            {
-                "organizationName": "Accenture Services Private Limited",
-                "organizationLogo": "assets/images/Accenture-logo.png",
-                "designation": "Software Engineer",
-                "startYear": 2015,
-                "totalDuration": "November 2015 - October 2016",
-                "location": "Pune, India"
-            },
-            {
-                "organizationName": "Capgemini Technology Solutions",
-                "organizationLogo": "assets/images/Capgemini-logo.png",
-                "designation": "Associate Consultant",
-                "startYear": 2012,
-                "totalDuration": "December 2012 - November 2015",
-                "location": "Pune, India"
-            }
-        ];
+    function TimelineComponent(profileService) {
+        this.profileService = profileService;
     }
     TimelineComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.profileService.getOrganizations().subscribe(function (res) { return _this.organizations = res; });
     };
     TimelineComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -340,9 +424,72 @@ var TimelineComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./timeline.component.html */ "./src/app/timeline/timeline.component.html"),
             styles: [__webpack_require__(/*! ./timeline.component.scss */ "./src/app/timeline/timeline.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [_services_profile_service__WEBPACK_IMPORTED_MODULE_1__["ProfileService"]])
     ], TimelineComponent);
     return TimelineComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/timeline2/timeline2.component.html":
+/*!****************************************************!*\
+  !*** ./src/app/timeline2/timeline2.component.html ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<p>\n  timeline2 works!\n</p>\n"
+
+/***/ }),
+
+/***/ "./src/app/timeline2/timeline2.component.scss":
+/*!****************************************************!*\
+  !*** ./src/app/timeline2/timeline2.component.scss ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/timeline2/timeline2.component.ts":
+/*!**************************************************!*\
+  !*** ./src/app/timeline2/timeline2.component.ts ***!
+  \**************************************************/
+/*! exports provided: Timeline2Component */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Timeline2Component", function() { return Timeline2Component; });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var Timeline2Component = /** @class */ (function () {
+    function Timeline2Component() {
+    }
+    Timeline2Component.prototype.ngOnInit = function () {
+    };
+    Timeline2Component = __decorate([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
+            selector: 'app-timeline2',
+            template: __webpack_require__(/*! ./timeline2.component.html */ "./src/app/timeline2/timeline2.component.html"),
+            styles: [__webpack_require__(/*! ./timeline2.component.scss */ "./src/app/timeline2/timeline2.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], Timeline2Component);
+    return Timeline2Component;
 }());
 
 

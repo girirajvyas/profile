@@ -53,15 +53,16 @@ In case you have to publish your code to gh-pages
  e.g: girirajvyas.github.io/profile   
  
 Create a branch at start and delete everything in it so that we can finally deploy the dist folder.  
-    ```cmd
-       git checkout gh-pages (-b if branch not already created)  
-       
-       git rm -r *  
-       
-       git commit -m "removed everything from gh-pages"    
-       
-       git push --set-upstream origin gh-pages  
-    ```
+  ```cmd
+  
+     git checkout gh-pages (-b if branch not already created)  
+
+     git rm -r *  
+
+     git commit -m "removed everything from gh-pages"    
+
+     git push --set-upstream origin gh-pages  
+  ```
 
 **Switch back to master again to work**  
     ```

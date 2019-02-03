@@ -23,6 +23,10 @@
     margin: 0 auto;
 }
 
+.timeline-header {
+    text-align: center
+}
+
 /* The actual timeline (the vertical ruler) */
 .timeline::after {
     content: '';

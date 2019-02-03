@@ -1,0 +1,50 @@
+.time-line-wrapper{
+    padding: 0px 15px;
+    max-width: 380px;
+    .time-line{
+        .inner-wrapper{
+            margin: 0px 15px;
+            border-left: 2px solid #ccc;
+            padding-left: 25px;
+            min-height: 100px;
+            .imgWrapper{
+                width:30%;
+                float:left;
+                img {
+                    border-radius:20px;
+                    width: 67px;
+                    width: 65px;
+                    /*Todo height width fix*/
+                }
+            }
+            .orgDetails{
+                width:70%;
+                float:left;
+                .orgName{
+                    font-size: 1.1em;
+                    color: #2C2C2C;
+                    font-weight: 600;
+                    margin: 0px;                    
+                    margin-bottom: 10px;
+                } 
+                .orgDesignation{
+                    font-size: 14px;
+                    color: #323232;
+                    margin-bottom: 10px;
+                }
+                .orgDuration, .orgLocation{
+                    font-size: 0.9em;
+                    color: #A3A3A3;
+                    font-weight: 600;
+                    line-height: 1.7em;
+                } 
+                .orgLocation{
+                    padding-bottom: 10px;
+                }
+            }
+        }
+    }
+    .clrGrey{
+       color: #ccc
+    }
+}

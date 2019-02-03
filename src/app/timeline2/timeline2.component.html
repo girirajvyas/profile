@@ -1,3 +1,20 @@
-<p>
-  timeline2 works!
-</p>
+<div *ngFor="let organization of organizations">
+<div class="time-line-wrapper">
+  <div class="time-line">
+    <div class="clrGrey">
+      {{organization.startYear}}
+    </div>
+    <div class="inner-wrapper">
+          <div class="imgWrapper">
+            <img src="{{organization.organizationLogo}}"/>
+          </div>
+          <div class="orgDetails">
+             <h5 class="orgName">  {{organization.organizationName}}</h5>
+             <div class="orgDesignation">  {{organization.designation}}</div>
+             <div class="orgDuration">  {{organization.totalDuration}}</div>
+             <div class="orgLocation">  {{organization.location}} </div>
+          </div>
+    </div>
+  </div>
+</div>
+</div>
